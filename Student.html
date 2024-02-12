@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row col-md-6 col-md-offset-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading text-center">
+            <h1>Student Login</h1>
+          </div>
+          <div class="panel-body">
+            <form action="fetch.php" method="post">
+              <div class="form-group">
+                <label for="regnum">Registrartion Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="regnum"
+                  name="regnum"
+                />
+              </div>
+              <input type="submit" class="btn btn-primary" />
+            </form>
+          </div>
+          </div>
+      </div>
+    <div class="row mt-5">
+          <div class="col">
+            <div class="card mt-5">
+              <div class="card-header">
+                <h2 class="display-6 text-center">Attendance Record</h2>
+              </div>
+              <div class="card-body">
+                <table class="table table-bordered text-center">
+                  <tr class="bg-dark text-white">
+                    <td> Registration number </td>
+                    <td> Name </td>
+                    <td> Total classes Attended</td>
+                    <td> Total Classes </td>
+                    <td>Attendance Percentage</td>
+                    <td> Edit </td>
+                    <td> Delete </td>
+                  </tr>
+                  <tr>
+                  <?php 
+  
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                  ?>
+                    <td><?php echo $row['user_id']; ?></td>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['last']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><a href="#" class="btn btn-primary">Edit</a></td>  
+                    <td><a href="#" class="btn btn-danger">Delete</a></td>  
+                  </tr>
+                  <?php    
+                    }
+                  
+                  ?>
+                  
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
